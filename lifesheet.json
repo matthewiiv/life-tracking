@@ -163,6 +163,23 @@
                 }
             },
             {
+                "key": "calorieConsumption",
+                "question": "How many calories did you comsume?",
+                "type": "number",
+                "buttons": {
+                    "1700": 1700,
+                    "1800": 1800
+                }
+            },
+            {
+                "key": "proteinConsumption",
+                "question": "How protein did you comsume?",
+                "type": "number",
+                "buttons": {
+                    "140": 140
+                }
+            },
+            {
                 "key": "hungry",
                 "question": "Have you been feeling hungry today?",
                 "type": "range",
