@@ -2,6 +2,8 @@
 const moment = require("moment");
 var needle = require("needle");
 const { Router, Markup, Extra } = require("telegraf");
+const dotenv = require('dotenv')
+dotenv.config();
 
 // Internal dependencies
 let config = require("./classes/config.js");

@@ -1,4 +1,4 @@
-.keys
+.env
 credentials.json
 .DS_STORE
 node_modules

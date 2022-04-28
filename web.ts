@@ -2,6 +2,8 @@
 var http = require("http");
 const moment = require("moment");
 let postgres = require("./classes/postgres.js");
+const dotenv = require('dotenv')
+dotenv.config();
 
 // State
 var lastFetchedData = {};

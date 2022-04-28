@@ -1,6 +1,8 @@
 "use strict";
 exports.__esModule = true;
 var moment = require("moment");
+var dotenv = require('dotenv');
+dotenv.config();
 var config = require("./classes/config.js");
 var postgres = require("./classes/postgres.js");
 var telegram = require("./classes/telegram.js");

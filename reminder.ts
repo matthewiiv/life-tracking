@@ -2,6 +2,8 @@ declare var require: any;
 
 // Third party dependencies
 const moment = require("moment");
+const dotenv = require('dotenv')
+dotenv.config();
 
 // Internal dependencies
 let config = require("./classes/config.js");

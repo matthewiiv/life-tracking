@@ -3,6 +3,8 @@ exports.__esModule = true;
 var http = require("http");
 var moment = require("moment");
 var postgres = require("./classes/postgres.js");
+var dotenv = require('dotenv');
+dotenv.config();
 var lastFetchedData = {};
 function loadCurrentData(key) {
     console.log("Refreshing latest " + key + " entry...");
