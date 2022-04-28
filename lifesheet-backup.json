@@ -47,17 +47,9 @@
                 "type": "number"
             },
             {
-                "key": "wakeTime",
-                "question": "When did you go to wake up this morning?",
-                "type": "range",
-                "buttons": {
-                    "5": "Before 7:00",
-                    "4": "Before 7:30",
-                    "3": "Before 8:00",
-                    "2": "Before 8:30",
-                    "1": "Before 9:00",
-                    "0": "Later"
-                }
+                "key": "fitbitTimeAsleep",
+                "question": "How many hours asleep were you according to Fitbit (round to nearest 30mins)",
+                "type": "number"
             },
             {
                 "key": "sleepWokeUpYourself",
@@ -70,8 +62,28 @@
                 "type": "text"
             },
             {
+                "key": "gratefulFor",
+                "question": "I am grateful for? [item 2] /skip",
+                "type": "text"
+            },
+            {
+                "key": "gratefulFor",
+                "question": "I am grateful for? [item 3] /skip",
+                "type": "text"
+            },
+            {
                 "key": "whatWouldMakeTodayGreat",
                 "question": "What would make today great? [item 1]",
+                "type": "text"
+            },
+            {
+                "key": "whatWouldMakeTodayGreat",
+                "question": "What would make today great? [item 2] /skip",
+                "type": "text"
+            },
+            {
+                "key": "whatWouldMakeTodayGreat",
+                "question": "What would make today great? [item 3] /skip",
                 "type": "text"
             },
             {
@@ -81,23 +93,8 @@
             },
             {
                 "key": "weight",
-                "question": "Current weight, in kgs",
+                "question": "Current weight, in lbs",
                 "type": "number"
-            },
-            {
-                "key": "exerciseCommitment",
-                "question": "Will you exercise today?",
-                "type": "boolean"
-            },
-            {
-                "key": "gymCommitment",
-                "question": "Will you go to the gym today?",
-                "type": "boolean"
-            },
-            {
-                "key": "bjjCommitment",
-                "question": "Will you go to BJJ today?",
-                "type": "boolean"
             }
         ]
     },
@@ -174,20 +171,77 @@
                     "1": "Felt hungry here and then",
                     "0": "Stomach growling parts of the day"
                 }
-            }, 
+            },
             {
-                "key": "exercise",
-                "question": "Did you exercise today?",
-                "type": "boolean"
+                "key": "energy",
+                "question": "Have you felt energized overall today?",
+                "type": "range",
+                "buttons": {
+                    "5": "Felt full of energy",
+                    "4": "Great energy",
+                    "3": "Good energy",
+                    "2": "Average energy",
+                    "1": "Felt tired/sluggish",
+                    "0": "Didn't feel like doing a lot"
+                }
+            },
+            {
+                "key": "stress",
+                "question": "Did you feel stressed today?",
+                "type": "range",
+                "buttons": {
+                    "5": "Very calm and aware",
+                    "4": "Calm & relaxed",
+                    "3": "Neutral",
+                    "2": "Lots to do",
+                    "1": "Stressed & Overwhelmed",
+                    "0": "Very stressed, not sure where to start"
+                }
+            },
+            {
+                "key": "caffeine",
+                "question": "How much caffeine did you drink today? (Coffee, Club Mate, Energy Drinks)",
+                "type": "range",
+                "buttons": {
+                    "5": "No caffeine",
+                    "4": "1 drink",
+                    "3": "2 drinks",
+                    "2": "3 drinks",
+                    "1": "4 drinks",
+                    "0": "5 drinks or more"
+                }
+            },
+            {
+                "key": "caffeineLastDrink",
+                "question": "When was your last caffein drink?",
+                "type": "range",
+                "buttons": {
+                    "5": "Before 3pm",
+                    "4": "Before 5pm",
+                    "3": "Before 7pm",
+                    "2": "Before 9pm",
+                    "1": "Before 11pm",
+                    "0": "Later"
+                }
             },
             {
                 "key": "gym",
-                "question": "Did you go to the gym today?",
+                "question": "Did you work out in a gym today?",
                 "type": "boolean"
             },
             {
-                "key": "bjj",
-                "question": "Did you go to BJJ today?",
+                "key": "nap",
+                "question": "Did you nap today?",
+                "type": "boolean"
+            },
+            {
+                "key": "headache",
+                "question": "Did you have headache today?",
+                "type": "boolean"
+            },
+            {
+                "key": "coldSymptons",
+                "question": "Did you have any cold symptons? (running nose, feeling dizzy, light ear pain)",
                 "type": "boolean"
             },
             {
@@ -204,9 +258,110 @@
                 }
             },
             {
+                "key": "creatineIntake",
+                "question": "Did you take your creatine today?",
+                "type": "boolean"
+            },
+            {
+                "key": "fishoilIntake",
+                "question": "Did you take your fish oil today?",
+                "type": "boolean"
+            },
+            {
                 "key": "dailySteps",
-                "question": "How many steps did you take according to Google Fit?",
+                "question": "How many steps did you take according to Apple Health?",
                 "type": "number"
+            },
+            {
+                "key": "fitbitRestingHeartRate",
+                "question": "What was today's resting heart rate according to FitBit",
+                "type": "number"
+            },
+            {
+                "key": "numberOfSwarmCheckins",
+                "question": "How many Swarm check-ins did you do today? Feel free to ignore train stations and other smaller check-ins, it's about how many actual places (restaurants, bars, sights) you visited today",
+                "type": "number"
+            },
+            {
+                "question": "👥 Let's talk social life",
+                "type": "header"
+            },
+            {
+                "key": "timeByMyself",
+                "question": "Do you feel like you'd have needed more time by yourself?",
+                "type": "range",
+                "buttons": {
+                    "5": "No",
+                    "4": "I've had just enough time",
+                    "3": "Good amount of time, could be more",
+                    "2": "Busy day, I need more time",
+                    "1": "Barely time for myself",
+                    "0": "No time by myself"
+                },
+                "replies": {
+                    "1": "Take a step back and think how you can improve this for the next days",
+                    "0": "Take a step back and think how you can improve this for the next days"
+                }
+            },
+            {
+                "key": "controlOfTime",
+                "question": "Did you feel like you were in control over your time and schedule?",
+                "type": "range",
+                "buttons": {
+                    "5": "In full control",
+                    "4": "In control, some constraints",
+                    "3": "A few constraints, but still in control",
+                    "2": "Average",
+                    "1": "Many constraints",
+                    "0": "Day was out of my control"
+                },
+                "replies": {
+                    "1": "Take a step back and think how you can improve this for the next days",
+                    "0": "Take a step back and think how you can improve this for the next days"
+                }
+            },
+            {
+                "key": "socializing",
+                "question": "Do you feel like you need to socialize more?",
+                "type": "range",
+                "buttons": {
+                    "5": "No",
+                    "4": "Almost perfect amount",
+                    "3": "Socializing was okay",
+                    "2": "Feel like I should socialize more",
+                    "1": "Not enough socializing",
+                    "0": "Feeling isolated"
+                }
+            },
+            {
+                "key": "goingOut",
+                "question": "Do you feel like you want to go out more, to restaurants, bars, dancing?",
+                "type": "range",
+                "buttons": {
+                    "5": "Don't feel like I need more",
+                    "4": "Felt pretty good about it",
+                    "3": "Did just enough",
+                    "2": "I want to go out more",
+                    "1": "I feel like I'm missing out",
+                    "0": "I'm unhappy about not getting out"
+                }
+            },
+            {
+                "question": "⚙️ Let's talk personal growth",
+                "type": "header"
+            },
+            {
+                "key": "learned",
+                "question": "Did you learn/try something new? (skill or activity)",
+                "type": "range",
+                "buttons": {
+                    "5": "Learned multiple new things",
+                    "4": "Learned some new things",
+                    "3": "Learned something new",
+                    "2": "Improved something existing",
+                    "1": "Didn't learn anything",
+                    "0": "I feel like I should learn more"
+                }
             },
             {
                 "key": "comfortZone",
@@ -235,18 +390,43 @@
                 }
             },
             {
+                "key": "minutesRead",
+                "question": "How many minutes of Audible did you listen to today?",
+                "type": "number"
+            },
+            {
                 "question": "🧠 Let's talk productivity",
                 "type": "header"
+            },
+            {
+                "key": "meditated",
+                "question": "How many minutes did you meditate today?",
+                "type": "number"
+            },
+            {
+                "key": "mindWandering",
+                "question": "Did you feel like you had enough time for your mind to wander around?",
+                "type": "boolean"
+            },
+            {
+                "key": "watchedTV",
+                "question": "Did you watch TV or a movie?",
+                "type": "boolean"
+            },
+            {
+                "key": "numberOfWorkMeetings",
+                "question": "How many work meetings did you have today? This includes work-related phone calls",
+                "type": "number"
+            },
+            {
+                "key": "numberOfPersonalMeetings",
+                "question": "How many personal meetings did you have today? This includes all 1:1 meet-ups, coffees and lunches with friends",
+                "type": "number"
             },
             {
                 "key": "goalsNextDay",
                 "question": "Did you set goals for the next day?",
                 "type": "boolean"
-            },
-            {
-                "key": "income",
-                "question": "How much money did you make? Salary is £180",
-                "type": "number"
             },
             {
                 "question": "🧩 Let's wrap things up",
@@ -260,6 +440,24 @@
             {
                 "key": "mainAccomplishment",
                 "question": "What was your main accomplishment of today",
+                "type": "text"
+            },
+            {
+                "key": "excitedAboutFuture",
+                "question": "Do you feel excited about what's ahead in the future?",
+                "type": "range",
+                "buttons": {
+                    "5": "Pumped about what's next",
+                    "4": "Excited about what's next",
+                    "3": "Optimistic about what's next",
+                    "2": "Feeling pretty good about it",
+                    "1": "Some uncertainty about what's coming up",
+                    "0": "Worried about what's next"
+                }
+            },
+            {
+                "key": "moodNotes",
+                "question": "What do you think was the main influence to your mood ratings today?",
                 "type": "text"
             },
             {
@@ -417,9 +615,24 @@
                 }
             },
             {
+                "key": "openTrelloTasks",
+                "question": "How many open todos do you currently have? Take from https://howisFelix.today",
+                "type": "number"
+            },
+            {
                 "key": "inboxZero",
                 "question": "Do you have less than 5 emails in your inbox?",
                 "type": "boolean"
+            },
+            {
+                "key": "weeklyComputerTime",
+                "question": "How many hours did you spend on your computer last week? Check Timing app, select `Past 7 days` and use `Total time`, round to nearest fullest hour",
+                "type": "number"
+            },
+            {
+                "key": "weeklyPhoneTime",
+                "question": "How many hours did you spend on your phone last week? Check Screen Time and remove all Fitness apps from the time",
+                "type": "number"
             },
             {
                 "question": "👥 Let's talk social life",
@@ -467,6 +680,55 @@
                     "1": "1 flight",
                     "0": "2 flights or more"
                 }
+            },
+            {
+                "key": "travelLiving",
+                "question": "Did you live stationary?",
+                "type": "range",
+                "buttons": {
+                    "5": "Stayed in a familiar env",
+                    "4": "Stayed in a semi-permanent env",
+                    "3": "Stayed in a new environment",
+                    "2": "Stayed at least 2 places",
+                    "1": "Stayed at more than 3 places",
+                    "0": "Lots of one-off stays"
+                }
+            },
+            {
+                "key": "urgeToTravel",
+                "question": "Do you feel like you have to travel somewhere, or otherwise you might be missing out?",
+                "type": "range",
+                "buttons": {
+                    "5": "Happy and statisfied - no travels needed",
+                    "4": "Happy with the current situation",
+                    "3": "Got a little urge to go somewhere",
+                    "2": "Feel like needing a little change",
+                    "1": "I'd like to travel somewhere for a bit",
+                    "0": "I'd like to do a longer travel again"
+                }
+            },
+            {
+                "key": "fomo",
+                "question": "Do you feel like you're missing out on things?",
+                "type": "range",
+                "buttons": {
+                    "5": "Happy and statisfied",
+                    "4": "Overall happy",
+                    "3": "Did things, but could have done better",
+                    "2": "Felt like I didn't do enough",
+                    "1": "Felt like I missed out on things",
+                    "0": "Felt like I missed out on major things"
+                }
+            },
+            {
+                "key": "playedComputerGamesAlone",
+                "question": "Did you play computer games by yourself last week?",
+                "type": "boolean"
+            },
+            {
+                "key": "playedComputerGamesFriends",
+                "question": "Did you play computer games with friends last week?",
+                "type": "boolean"
             }
         ]
     }
