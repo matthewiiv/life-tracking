@@ -3,7 +3,7 @@ exports.__esModule = true;
 var moment = require("moment");
 var needle = require("needle");
 var _a = require("telegraf"), Router = _a.Router, Markup = _a.Markup, Extra = _a.Extra;
-var dotenv = require('dotenv');
+var dotenv = require("dotenv");
 dotenv.config();
 var config = require("./classes/config.js");
 var postgres = require("./classes/postgres.js");
@@ -125,7 +125,7 @@ function triggerNextQuestionFromQueue(ctx) {
             [getButtonText("3")],
             [getButtonText("2")],
             [getButtonText("1")],
-            [getButtonText("0")]
+            [getButtonText("0")],
         ];
         shuffleArray(allButtons);
         keyboard = Markup.keyboard(allButtons)
@@ -144,7 +144,7 @@ function triggerNextQuestionFromQueue(ctx) {
     else if (currentlyAskedQuestionObject.type == "location") {
         keyboard = Extra.markup(function (markup) {
             return markup.keyboard([
-                markup.locationRequestButton("📡 Send location")
+                markup.locationRequestButton("📡 Send location"),
             ]);
         });
     }
@@ -396,6 +396,7 @@ function initBot() {
         if (ctx.update.message.from.username != process.env.TELEGRAM_USER_ID) {
             return;
         }
+        console.log("HERE");
         var command = ctx.match[1];
         var matchingCommandObject = config.userConfig[command];
         if (matchingCommandObject && matchingCommandObject.questions) {

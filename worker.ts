@@ -2,7 +2,7 @@
 const moment = require("moment");
 var needle = require("needle");
 const { Router, Markup, Extra } = require("telegraf");
-const dotenv = require('dotenv')
+const dotenv = require("dotenv");
 dotenv.config();
 
 // Internal dependencies
@@ -10,7 +10,7 @@ let config = require("./classes/config.js");
 let postgres = require("./classes/postgres.js");
 let telegram = require("./classes/telegram.js");
 
-import { Command, QuestionToAsk } from "./classes/config.js";
+import { QuestionToAsk } from "./classes/config.js";
 
 let bot = telegram.bot;
 
@@ -28,7 +28,7 @@ function getButtonText(number) {
     "2": "2️⃣",
     "3": "3️⃣",
     "4": "4️⃣",
-    "5": "5️⃣"
+    "5": "5️⃣",
   }[number];
 
   if (currentlyAskedQuestionObject.buttons == null) {
@@ -39,7 +39,7 @@ function getButtonText(number) {
       "2": "Okay",
       "3": "Good",
       "4": "Great",
-      "5": "Excellent"
+      "5": "Excellent",
     };
   }
 
@@ -57,7 +57,7 @@ function printGraph(
     {
       text:
         "SELECT * FROM raw_data WHERE key = $1 ORDER BY timestamp DESC LIMIT 300",
-      values: [key]
+      values: [key],
     },
     (err, res) => {
       console.log(res);
@@ -129,7 +129,7 @@ function printGraph(
           maximum;
         console.log(url);
         ctx.replyWithPhoto({
-          url: url
+          url: url,
         });
       }
     }
@@ -137,7 +137,7 @@ function printGraph(
 }
 
 function triggerNextQuestionFromQueue(ctx) {
-  let keyboard = Extra.markup(m => m.removeKeyboard()); // default keyboard
+  let keyboard = Extra.markup((m) => m.removeKeyboard()); // default keyboard
   let questionAppendix = "";
 
   currentlyAskedQuestionObject = currentlyAskedQuestionQueue.shift();
@@ -174,7 +174,7 @@ function triggerNextQuestionFromQueue(ctx) {
       [getButtonText("3")],
       [getButtonText("2")],
       [getButtonText("1")],
-      [getButtonText("0")]
+      [getButtonText("0")],
     ];
     shuffleArray(allButtons);
     keyboard = Markup.keyboard(allButtons)
@@ -189,9 +189,9 @@ function triggerNextQuestionFromQueue(ctx) {
     questionAppendix +=
       "You can use a Bear note, and then paste the deep link to the note here";
   } else if (currentlyAskedQuestionObject.type == "location") {
-    keyboard = Extra.markup(markup => {
+    keyboard = Extra.markup((markup) => {
       return markup.keyboard([
-        markup.locationRequestButton("📡 Send location")
+        markup.locationRequestButton("📡 Send location"),
       ]);
     });
   }
@@ -260,7 +260,7 @@ function insertNewValue(parsedUserValue, ctx, key, type, fakeDate = null) {
     Value: parsedUserValue,
     Source: "telegram",
     Importedat: moment(ctx.update.message.date * 1000),
-    Importid: null
+    Importid: null,
   };
 
   postgres.client.query(
@@ -269,7 +269,7 @@ function insertNewValue(parsedUserValue, ctx, key, type, fakeDate = null) {
         "INSERT INTO raw_data (" +
         Object.keys(row).join(",") +
         ") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17)",
-      values: Object.values(row)
+      values: Object.values(row),
     },
     (err, res) => {
       console.log(res);
@@ -423,7 +423,7 @@ function saveLastRun(command) {
     {
       text:
         "insert into last_run (command, last_run) VALUES ($1, $2) on conflict (command) do update set last_run = $2",
-      values: [command, moment().valueOf()]
+      values: [command, moment().valueOf()],
     },
     (err, res) => {
       console.log(res);
@@ -442,7 +442,7 @@ function initBot() {
   // parse numeric/text inputs
   // `^([^\/].*)$` matches everything that doens't start with /
   // This will enable us to get any user inputs, including longer texts
-  bot.hears(/^([^\/].*)$/, ctx => {
+  bot.hears(/^([^\/].*)$/, (ctx) => {
     parseUserInput(ctx);
   });
 
@@ -453,7 +453,7 @@ function initBot() {
   // parse one-off commands:
   //
   // Those have to be above the regex match
-  bot.hears("/skip", ctx => {
+  bot.hears("/skip", (ctx) => {
     if (ctx.update.message.from.username != process.env.TELEGRAM_USER_ID) {
       console.error("Invalid user " + ctx.update.message.from.username);
       return;
@@ -466,7 +466,7 @@ function initBot() {
     triggerNextQuestionFromQueue(ctx);
   });
 
-  bot.hears("/skip_all", ctx => {
+  bot.hears("/skip_all", (ctx) => {
     if (ctx.update.message.from.username != process.env.TELEGRAM_USER_ID) {
       return;
     }
@@ -475,7 +475,7 @@ function initBot() {
     ctx.reply("Okay, removing all questions that are currently in the queue");
   });
 
-  bot.hears(/\/track (\w+)/, ctx => {
+  bot.hears(/\/track (\w+)/, (ctx) => {
     if (ctx.update.message.from.username != process.env.TELEGRAM_USER_ID) {
       console.error("Invalid user " + ctx.update.message.from.username);
       return;
@@ -514,7 +514,7 @@ function initBot() {
     }
   });
 
-  bot.hears(/\/graph (\w+)/, ctx => {
+  bot.hears(/\/graph (\w+)/, (ctx) => {
     if (ctx.update.message.from.username != process.env.TELEGRAM_USER_ID) {
       return;
     }
@@ -525,7 +525,7 @@ function initBot() {
     printGraph(key, ctx, 100, null, false);
   });
 
-  bot.on("location", ctx => {
+  bot.on("location", (ctx) => {
     if (ctx.update.message.from.username != process.env.TELEGRAM_USER_ID) {
       return;
     }
@@ -549,7 +549,7 @@ function initBot() {
   });
 
   // parse commands to start a survey
-  bot.hears(/\/(\w+)/, ctx => {
+  bot.hears(/\/(\w+)/, (ctx) => {
     if (ctx.update.message.from.username != process.env.TELEGRAM_USER_ID) {
       return;
     }
@@ -588,7 +588,7 @@ function initBot() {
     }
   });
 
-  bot.start(ctx => ctx.reply("Welcome to FxLifeSheet"));
+  bot.start((ctx) => ctx.reply("Welcome to FxLifeSheet"));
   // bot.on(["voice", "video_note"], ctx => {
   //   if (ctx.update.message.from.username != process.env.TELEGRAM_USER_ID) {
   //     return;
@@ -634,13 +634,13 @@ function initBot() {
   //   });
   // });
 
-  bot.help(ctx =>
+  bot.help((ctx) =>
     ctx.reply(
       "No in-bot help right now, for now please visit https://github.com/KrauseFx/FxLifeSheet"
     )
   );
-  bot.on("sticker", ctx => ctx.reply("Sorry, I don't support stickers"));
-  bot.hears("hi", ctx => ctx.reply("Hey there"));
+  bot.on("sticker", (ctx) => ctx.reply("Sorry, I don't support stickers"));
+  bot.hears("hi", (ctx) => ctx.reply("Hey there"));
 
   // has to be last
   bot.launch();
