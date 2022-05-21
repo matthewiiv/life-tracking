@@ -44,16 +44,6 @@
         "key": "bjjCommitment",
         "question": "Will you go to BJJ today?",
         "type": "boolean"
-      },
-      {
-        "key": "gratefulFor",
-        "question": "I am grateful for? [item 1]",
-        "type": "text"
-      },
-      {
-        "key": "whatWouldMakeTodayGreat",
-        "question": "What would make today great? [item 1]",
-        "type": "text"
       }
     ]
   },
@@ -61,21 +51,6 @@
     "description": "Use this right when going to bed",
     "schedule": "daily",
     "questions": [
-      {
-        "key": "greatThingsThatHappenedToday",
-        "question": "3 great things that happened today... [item 1]",
-        "type": "text"
-      },
-      {
-        "key": "greatThingsThatHappenedToday",
-        "question": "3 great things that happened today... [item 2] /skip",
-        "type": "text"
-      },
-      {
-        "key": "greatThingsThatHappenedToday",
-        "question": "3 great things that happened today... [item 3] /skip",
-        "type": "text"
-      },
       {
         "key": "madeTodayBetter",
         "question": "What could I have improved?",
@@ -185,7 +160,7 @@
       },
       {
         "key": "leanUkrainian",
-        "question": "Did you practice your Ukrainian",
+        "question": "Did you practice Ukrainian",
         "type": "number"
       },
       {
