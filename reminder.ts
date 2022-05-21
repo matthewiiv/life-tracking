@@ -2,7 +2,7 @@ declare var require: any;
 
 // Third party dependencies
 const moment = require("moment");
-const dotenv = require('dotenv')
+const dotenv = require("dotenv");
 dotenv.config();
 
 // Internal dependencies
@@ -16,7 +16,7 @@ console.log("Checking if we need to send a reminder to the user...");
 setTimeout(function() {
   postgres.client.query(
     {
-      text: "SELECT * FROM last_run"
+      text: "SELECT * FROM last_run",
     },
     (err, res) => {
       console.log(res);
@@ -37,7 +37,7 @@ setTimeout(function() {
             "Error, command not found, means it's not on the last run sheet, probably due to renaming a command: " +
               command
           );
-          break;
+          continue;
         }
 
         let scheduleType = config.userConfig[command].schedule;
@@ -108,7 +108,7 @@ setTimeout(function() {
           postgres.client.query(
             {
               text: "UPDATE last_run SET last_message = $1 where command = $2",
-              values: [moment().valueOf(), command]
+              values: [moment().valueOf(), command],
             },
             (err, res) => {
               if (err) {

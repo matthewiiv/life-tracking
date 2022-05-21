@@ -1,7 +1,7 @@
 "use strict";
 exports.__esModule = true;
 var moment = require("moment");
-var dotenv = require('dotenv');
+var dotenv = require("dotenv");
 dotenv.config();
 var config = require("./classes/config.js");
 var postgres = require("./classes/postgres.js");
@@ -24,7 +24,7 @@ setTimeout(function () {
             if (config.userConfig[command] == null) {
                 console.error("Error, command not found, means it's not on the last run sheet, probably due to renaming a command: " +
                     command);
-                break;
+                continue;
             }
             var scheduleType = config.userConfig[command].schedule;
             var timeDifferenceHours = moment().diff(moment(lastRun), "hours");

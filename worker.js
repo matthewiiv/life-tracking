@@ -396,7 +396,6 @@ function initBot() {
         if (ctx.update.message.from.username != process.env.TELEGRAM_USER_ID) {
             return;
         }
-        console.log("HERE");
         var command = ctx.match[1];
         var matchingCommandObject = config.userConfig[command];
         if (matchingCommandObject && matchingCommandObject.questions) {
