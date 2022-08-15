@@ -220,7 +220,7 @@
       },
       {
         "key": "sawFamily",
-        "question": "Did you hang out, in person with a friend?",
+        "question": "Did you hang out, in person with family?",
         "type": "boolean"
       },
       {

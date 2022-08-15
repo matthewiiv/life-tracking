@@ -2,6 +2,8 @@
 
 ## Running / Deploying
 
+`git push heroku master`
+
 ## Implementation
 
 **Assumptions**
