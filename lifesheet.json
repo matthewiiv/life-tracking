@@ -41,8 +41,8 @@
         "type": "boolean"
       },
       {
-        "key": "bjjCommitment",
-        "question": "Will you go to BJJ today?",
+        "key": "friendCommitment",
+        "question": "Will you see a friend today?",
         "type": "boolean"
       }
     ]
@@ -97,19 +97,12 @@
       {
         "key": "calorieConsumption",
         "question": "How many calories did you comsume?",
-        "type": "number",
-        "buttons": {
-          "1700": 1700,
-          "1800": 1800
-        }
+        "type": "number"
       },
       {
         "key": "proteinConsumption",
         "question": "How protein did you comsume?",
-        "type": "number",
-        "buttons": {
-          "140": 140
-        }
+        "type": "number"
       },
       {
         "key": "exercise",
@@ -122,8 +115,8 @@
         "type": "boolean"
       },
       {
-        "key": "bjj",
-        "question": "Did you go to BJJ today?",
+        "key": "friend",
+        "question": "Did you see a friend today?",
         "type": "boolean"
       },
       {
@@ -154,13 +147,8 @@
         "type": "boolean"
       },
       {
-        "key": "income",
-        "question": "How much money did you make? Salary is £180",
-        "type": "number"
-      },
-      {
         "key": "leanUkrainian",
-        "question": "Did you practice Ukrainian",
+        "question": "Did you learn Ukrainian",
         "type": "number"
       },
       {
@@ -187,79 +175,7 @@
     "schedule": "weekly",
     "questions": [
       {
-        "question": "💪 Let's talk fitness first",
-        "type": "header"
-      },
-      {
-        "question": "⌲ Now onto the body measurements, please make sure to enter the number in cm!",
-        "type": "header"
-      },
-      {
-        "key": "measurementTapeChest",
-        "question": "Chest tape measurement, covers lats, measure on one level, engage chest",
-        "type": "number"
-      },
-      {
-        "key": "measurementTapeRightArm",
-        "question": "Right arm tape measurement, lift up and flex",
-        "type": "number"
-      },
-      {
-        "key": "measurementTapeLeftArm",
-        "question": "Left arm tape measurement, lift up and flex",
-        "type": "number"
-      },
-      {
-        "key": "measurementTapeAboveBelly",
-        "question": "Measure 3 fingers above belly button",
-        "type": "number"
-      },
-      {
-        "key": "measurementTapeAroundBelly",
-        "question": "Measure around belly button",
-        "type": "number"
-      },
-      {
-        "key": "measurementTapeUnderBelly",
-        "question": "Measure 3 fingers under belly button",
-        "type": "number"
-      },
-      {
-        "key": "measurementTapeHip",
-        "question": "Measure tape around hip, should measure butt also",
-        "type": "number"
-      },
-      {
-        "key": "measurementTapeRightThigh",
-        "question": "Measure tape around right thigh, widest part of the leg, engage pressing down against the floor",
-        "type": "number"
-      },
-      {
-        "key": "measurementTapeLeftThigh",
-        "question": "Measure tape around left thigh, widest part of the leg, engage pressing down against the floor",
-        "type": "number"
-      },
-      {
-        "question": "🎅 Now onto the fat caliper measurements",
-        "type": "header"
-      },
-      {
-        "key": "measurementFatCaliperBiceps",
-        "question": "Fat caliper, average value for both left and right biceps",
-        "type": "number"
-      },
-      {
-        "key": "measurementFatCaliperAboveBelly",
-        "question": "Fat caliper, right above belly button, from top",
-        "type": "number"
-      },
-      {
-        "key": "measurementFatCaliperNextToBelly",
-        "question": "Fat caliper, right next to belly button, from top",
-        "type": "number"
-      },
-      {
-        "question": "💪 Enough measurements, let's talk fitness metadata",
+        "question": "💪 Let's talk fitness metadata",
         "type": "header"
       },
       {
@@ -276,23 +192,9 @@
         }
       },
       {
-        "key": "macrosProtein",
-        "question": "How many daily grams of protein was your MFP goal?",
+        "key": "calories",
+        "question": "What was your daily calorie goal?",
         "type": "number"
-      },
-      {
-        "key": "macroNotes",
-        "question": "Notes about your macros, anything that stood out?",
-        "type": "text"
-      },
-      {
-        "question": "🧠 Let's talk productivity",
-        "type": "header"
-      },
-      {
-        "question": "🕺 If you could describe the last week in one sentence, what stood out?",
-        "type": "text",
-        "key": "lastWeekSummaryText"
       },
       {
         "key": "weekLifeProgress",
@@ -317,47 +219,14 @@
         "type": "header"
       },
       {
-        "key": "enoughTimeFamily",
-        "question": "Do you feel like you've took enough time last week to spend with your family (siblings, parents and greater family)? If based outside Austria, apply this to FaceTime calls",
-        "type": "range",
-        "buttons": {
-          "5": "Spent enough time",
-          "4": "Spent a good amount of time",
-          "3": "Spent time with them",
-          "2": "Spent some time with them",
-          "1": "Should spend more time",
-          "0": "Wasn't able to spend time"
-        }
+        "key": "sawFamily",
+        "question": "Did you hang out, in person with a friend?",
+        "type": "boolean"
       },
       {
-        "key": "deepConversations",
-        "question": "Did you have deep conversations with close friends/family last week?",
-        "type": "range",
-        "buttons": {
-          "5": "Had one or more multi-hour long talks",
-          "4": "Had one more more insightful talks",
-          "3": "Some, but could be more",
-          "2": "Some, but should be more",
-          "1": "No real deep conversations",
-          "0": "No deep converations, but I need it"
-        }
-      },
-      {
-        "question": "🎁 Let's wrap things up",
-        "type": "header"
-      },
-      {
-        "key": "travel",
-        "question": "How much did you travel last week?",
-        "type": "range",
-        "buttons": {
-          "5": "Mostly stationary, minimal commute",
-          "4": "Normal travel/commute",
-          "3": "More than usual travels through car or train",
-          "2": "Longer travels through car or train",
-          "1": "1 flight",
-          "0": "2 flights or more"
-        }
+        "key": "sawFriend",
+        "question": "Did you hang out, in person with a friend?",
+        "type": "boolean"
       }
     ]
   }
