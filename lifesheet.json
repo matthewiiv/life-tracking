@@ -41,6 +41,21 @@
         "type": "boolean"
       },
       {
+        "key": "nomCommitment",
+        "question": "Will you nom today?",
+        "type": "boolean"
+      },
+      {
+        "key": "redditCommitment",
+        "question": "Will you browse Reddit today?",
+        "type": "boolean"
+      },
+      {
+        "key": "redditCommitment",
+        "question": "Will you watch Youtube today?",
+        "type": "boolean"
+      },
+      {
         "key": "friendCommitment",
         "question": "Will you see a friend today?",
         "type": "boolean"
@@ -112,6 +127,21 @@
       {
         "key": "gym",
         "question": "Did you go to the gym today?",
+        "type": "boolean"
+      },
+      {
+        "key": "nom",
+        "question": "How many times did you nom?",
+        "type": "boolean"
+      },
+      {
+        "key": "reddit",
+        "question": "Did you browse Reddit?",
+        "type": "boolean"
+      },
+      {
+        "key": "reddit",
+        "question": "Did watch Youtube?",
         "type": "boolean"
       },
       {
