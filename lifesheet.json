@@ -132,7 +132,7 @@
       {
         "key": "nom",
         "question": "How many times did you nom?",
-        "type": "boolean"
+        "type": "number"
       },
       {
         "key": "reddit",
@@ -147,6 +147,11 @@
       {
         "key": "friend",
         "question": "Did you see a friend today?",
+        "type": "boolean"
+      },
+      {
+        "key": "review",
+        "question": "Did you review your day?",
         "type": "boolean"
       },
       {
