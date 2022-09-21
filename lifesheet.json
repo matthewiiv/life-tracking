@@ -59,6 +59,11 @@
         "key": "friendCommitment",
         "question": "Will you see a friend today?",
         "type": "boolean"
+      },
+      {
+        "key": "lunchCommitment",
+        "question": "Will you buy lunch today?",
+        "type": "boolean"
       }
     ]
   },
